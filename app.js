@@ -301,7 +301,7 @@ function envoyer(){
         notes:
             AVIS,
 
-        pastille: pastilleAvis,
+       
         
         commentaire,
 
