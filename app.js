@@ -319,7 +319,29 @@ function envoyer(){
 
     console.log(resultat);
 
+    fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma", {
 
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(resultat)
+
+    })
+
+    .then(() => {
+
+        console.log("Avis envoyé à Make");
+
+    })
+
+    .catch(error => {
+
+        console.error("Erreur envoi Make :", error);
+
+    });
 
     const apercu = `
 
