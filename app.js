@@ -386,11 +386,21 @@ ${commentaire || ""}
 
 `;
 
+let couleurAvis = "";
 
+if (AVIS[0] >= 4) {
+    couleurAvis = "avis-vert";
+}
+else if (AVIS[0] === 3) {
+    couleurAvis = "avis-orange";
+}
+else {
+    couleurAvis = "avis-rouge";
+}
 
     document.getElementById("message").innerHTML =
 
-    "<pre class='apercu'>" +
+    "<pre class='apercu " + couleurAvis + "'>"
 
     apercu +
 
