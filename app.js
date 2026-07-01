@@ -301,8 +301,7 @@ function envoyer(){
         notes:
             AVIS,
 
-       
-        
+
         commentaire,
 
         prenom,
@@ -398,17 +397,7 @@ else if (AVIS[0] === 3) {
 else {
     couleurAvis = "avis-rouge";
 }
-let pastilleAvis = "";
 
-if (AVIS[0] >= 4) {
-    pastilleAvis = "🟢";
-}
-else if (AVIS[0] === 3) {
-    pastilleAvis = "🟠";
-}
-else {
-    pastilleAvis = "🔴";
-}
     document.getElementById("message").innerHTML =
 
     "<pre class='apercu " + couleurAvis + "'>" +
