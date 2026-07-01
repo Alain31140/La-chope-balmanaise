@@ -334,14 +334,3 @@ button:disabled{
     color:#333;
 
 }
-.avis-vert {
-    border-left: 8px solid #4CAF50;
-}
-
-.avis-orange {
-    border-left: 8px solid #FF9800;
-}
-
-.avis-rouge {
-    border-left: 8px solid #F44336;
-}
