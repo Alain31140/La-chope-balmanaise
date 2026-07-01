@@ -399,8 +399,8 @@ else {
 }
 
     document.getElementById("message").innerHTML =
-
-    "<pre class='apercu " + couleurAvis + "'>" +
+    "<pre class='apercu'>" +
+   📱  "<pre class='apercu " + couleurAvis + "'>" +
 
     apercu +
 
