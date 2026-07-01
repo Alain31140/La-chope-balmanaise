@@ -400,7 +400,7 @@ else {
 
     document.getElementById("message").innerHTML =
 
-    "<pre class='apercu " + couleurAvis + "'>"
+    "<pre class='apercu " + couleurAvis + "'>" +
 
     apercu +
 
