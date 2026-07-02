@@ -47,7 +47,7 @@ let CONFIG = {
   Etat
 ----------------------------------------------------------*/
 
-const AVIS = {};
+let AVIS = [];
 
 
 
@@ -260,7 +260,7 @@ function envoyer(){
         document.getElementById("contact").checked;
 
     // 🔴 sécurité : note globale (AVIS[0]) doit exister
-    if (AVIS[0] === 0) {
+    if (!AVIS[0])
         alert("Merci de renseigner au moins la note globale.");
         return;
     }
