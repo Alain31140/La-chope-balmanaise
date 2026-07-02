@@ -200,6 +200,11 @@ function envoyer() {
         email
     };
 
+
+console.log("👉 ENVOI WEBHOOK");
+console.log(JSON.stringify(resultat, null, 2));
+
+
     console.log("RESULTAT:", resultat);
 
     // UI success
