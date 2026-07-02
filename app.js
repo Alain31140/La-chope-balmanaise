@@ -1,108 +1,65 @@
-/* ==========================================================
-   QRFeedback V1.0
-   app.js
-========================================================== */
-
-/*----------------------------------------------------------
-  Configuration
-----------------------------------------------------------*/
-
 let CONFIG = {
-
     commerce: {
-
         nom: "La chope balmanaise",
-
         slogan: "Merci de votre visite !",
-
         logo: "images/logo.png"
-
     },
-
     questions: [
-
         "Expérience globale",
-
         "Qualité des plats",
-
         "Accueil",
-
         "Rapidité du service",
-
         "Rapport qualité / prix"
-
     ]
-
 };
-
-/*----------------------------------------------------------
-  Etat
-----------------------------------------------------------*/
 
 let AVIS = [];
 
-/*----------------------------------------------------------
-  Initialisation
-----------------------------------------------------------*/
-
 window.addEventListener("DOMContentLoaded", initialiser);
 
-function initialiser(){
+function initialiser() {
 
     document.getElementById("btnEnvoyer").disabled = true;
 
     afficherCommerce();
-
     construireQuestionnaire();
 
-    document
-        .getElementById("btnEnvoyer")
+    document.getElementById("btnEnvoyer")
         .addEventListener("click", envoyer);
 
+    // contact toggle
+    document.getElementById("contact").addEventListener("change", toggleContactFields);
+
+    toggleContactFields();
 }
 
-/*----------------------------------------------------------
-  Commerce
-----------------------------------------------------------*/
+/* =========================
+   COMMERCE
+========================= */
 
-function afficherCommerce(){
+function afficherCommerce() {
 
-    document.getElementById("commerceNom").textContent =
-        CONFIG.commerce.nom;
-
-    document.getElementById("commerceSlogan").textContent =
-        CONFIG.commerce.slogan;
+    document.getElementById("commerceNom").textContent = CONFIG.commerce.nom;
+    document.getElementById("commerceSlogan").textContent = CONFIG.commerce.slogan;
 
     const logo = document.getElementById("logo");
 
-    logo.onerror = function(){
-
+    logo.onerror = function () {
         logo.style.display = "none";
-
-        const icone = document.createElement("div");
-
-        icone.innerHTML = "🍽️";
-
-        icone.style.fontSize = "70px";
-        icone.style.textAlign = "center";
-        icone.style.marginBottom = "15px";
-
-        logo.parentNode.insertBefore(icone, logo);
-
     };
 
     logo.src = CONFIG.commerce.logo;
 }
 
-/*----------------------------------------------------------
-  Questionnaire
-----------------------------------------------------------*/
+/* =========================
+   QUESTIONNAIRE
+========================= */
 
-function construireQuestionnaire(){
+function construireQuestionnaire() {
 
     const zone = document.getElementById("questionnaire");
 
-    CONFIG.questions.forEach((question,index)=>{
+    CONFIG.questions.forEach((question, index) => {
 
         AVIS[index] = 0;
 
@@ -114,10 +71,9 @@ function construireQuestionnaire(){
 
         const note = document.createElement("span");
         note.id = "note-" + index;
-        note.style.float = "right";
-        note.style.fontWeight = "normal";
-        note.style.color = "#777";
         note.textContent = "0 / 5";
+        note.style.float = "right";
+        note.style.color = "#777";
 
         titre.appendChild(note);
         bloc.appendChild(titre);
@@ -125,10 +81,9 @@ function construireQuestionnaire(){
         const etoiles = document.createElement("div");
         etoiles.className = "stars";
 
-        for(let i=1;i<=5;i++){
+        for (let i = 1; i <= 5; i++) {
 
             const star = document.createElement("span");
-
             star.className = "star";
             star.innerHTML = "★";
 
@@ -145,11 +100,11 @@ function construireQuestionnaire(){
     });
 }
 
-/*----------------------------------------------------------
-  Etoiles
-----------------------------------------------------------*/
+/* =========================
+   STARS
+========================= */
 
-function selectionner(){
+function selectionner() {
 
     const question = this.dataset.question;
     const note = Number(this.dataset.note);
@@ -159,114 +114,97 @@ function selectionner(){
     document.getElementById("note-" + question)
         .textContent = note + " / 5";
 
-    const etoiles = document.querySelectorAll(
-        '.star[data-question="'+question+'"]'
-    );
-
-    etoiles.forEach(star=>{
-
-        if(Number(star.dataset.note) <= note){
-            star.classList.add("active");
-        } else {
-            star.classList.remove("active");
-        }
-
-    });
+    document.querySelectorAll('.star[data-question="' + question + '"]')
+        .forEach(star => {
+            star.classList.toggle("active", Number(star.dataset.note) <= note);
+        });
 
     document.getElementById("btnEnvoyer").disabled = (AVIS[0] === 0);
 }
 
-/*----------------------------------------------------------
-  Envoi
-----------------------------------------------------------*/
+/* =========================
+   CONTACT FIELDS
+========================= */
 
-function envoyer(){
+function toggleContactFields() {
 
-    console.log("DEBUG AVIS =", AVIS);
-    console.log("ENVOI MAKE:", AVIS);
+    const show = document.getElementById("contact").checked;
 
-    const commentaire =
-        document.getElementById("commentaire").value.trim();
+    document.getElementById("phoneBlock").style.display = show ? "block" : "none";
+    document.getElementById("emailBlock").style.display = show ? "block" : "none";
+}
 
-    const prenom =
-        document.getElementById("prenom").value.trim();
+/* =========================
+   VALIDATION
+========================= */
 
-    const contact =
-        document.getElementById("contact").checked;
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-    // sécurité
+function isValidPhone(phone) {
+    return /^(\+33|0)[1-9](\d{8})$/.test(phone.replace(/\s/g, ""));
+}
+
+/* =========================
+   ENVOI
+========================= */
+
+function envoyer() {
+
+    const commentaire = document.getElementById("commentaire").value.trim();
+    const prenom = document.getElementById("prenom").value.trim();
+
+    const contact = document.getElementById("contact").checked;
+
+    let phone = "";
+    let email = "";
+
+    if (contact) {
+        phone = document.getElementById("phone").value.trim();
+        email = document.getElementById("email").value.trim();
+
+        if (!isValidPhone(phone)) {
+            alert("Téléphone invalide");
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            alert("Email invalide");
+            return;
+        }
+    }
+
     if (!AVIS[0]) {
-        alert("Merci de renseigner au moins la note globale.");
+        alert("Merci de renseigner la note globale.");
         return;
     }
 
-    // calcul moyenne
     let total = 0;
-    let nb = 0;
+    AVIS.forEach(n => total += Number(n));
 
-    AVIS.forEach(note => {
-        total += Number(note);
-        nb++;
-    });
+    const moyenne = total / AVIS.length;
 
-    const moyenne = total / nb;
+    let pastille = moyenne >= 4 ? "🟢" : moyenne >= 3 ? "🟡" : "🔴";
 
-    // pastille
-    let pastille = "";
-
-    if (moyenne >= 4) pastille = "🟢";
-    else if (moyenne >= 3) pastille = "🟡";
-    else pastille = "🔴";
-
-    // détails
-    let detailsNotes = "";
-
-    CONFIG.questions.forEach((question,index)=>{
-        detailsNotes += question + " : " + AVIS[index] + "/5\n";
-    });
-
-    // objet final
-    const resultat = {
-
+    let resultat = {
         commerce: CONFIG.commerce.nom,
         date: new Date().toLocaleString(),
-
         notes: AVIS,
-        moyenne: moyenne,
-        pastille: pastille,
-
+        moyenne,
+        pastille,
         commentaire,
         prenom,
-        contact
+        contact,
+        phone,
+        email
     };
 
     console.log("RESULTAT:", resultat);
 
-    // ENVOI MAKE
-    fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qnj5qnj5cfahuma", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(resultat)
-    }).catch(err => console.log("WEBHOOK ERROR", err));
-
-    // aperçu email
-    const apercu = `
-${pastille} Note moyenne : ${moyenne.toFixed(1)}/5
-
-Commerce : ${resultat.commerce}
-Date : ${resultat.date}
-
-${detailsNotes}
-
-Client : ${prenom || "Anonyme"}
-Contact : ${contact ? "Oui" : "Non"}
-
-Commentaire :
-${commentaire || "Aucun"}
-`;
-
-    document.getElementById("message").innerHTML =
-        "<pre class='apercu'>" + apercu + "</pre>";
+    // UI success
+    document.querySelector(".card").innerHTML = `
+        <h2>Merci pour votre avis 😊</h2>
+        <p>Votre retour a bien été pris en compte.</p>
+    `;
 }
