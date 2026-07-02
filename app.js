@@ -207,6 +207,15 @@ console.log(JSON.stringify(resultat, null, 2));
 
     console.log("RESULTAT:", resultat);
 
+fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(resultat)
+})
+.catch(err => console.log("WEBHOOK ERROR", err));
+
     // UI success
     document.querySelector(".card").innerHTML = `
         <h2>Merci pour votre avis 😊</h2>
