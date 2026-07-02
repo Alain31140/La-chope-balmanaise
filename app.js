@@ -209,15 +209,22 @@ console.log(JSON.stringify(resultat, null, 2));
 
     console.log("RESULTAT:", resultat);
 
+console.log("🚀 ENVOI MAKE START");
+
 fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma", {
     method: "POST",
-    mode: "no-cors",
     headers: {
         "Content-Type": "application/json"
     },
     body: JSON.stringify(resultat)
+})
+.then(response => {
+    console.log("📡 STATUS:", response.status);
+    console.log("📡 ENVOI OK");
+})
+.catch(err => {
+    console.log("❌ ERREUR MAKE:", err);
 });
-
 console.log("📤 requête envoyée");
 
     // UI success
