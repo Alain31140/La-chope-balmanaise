@@ -119,7 +119,7 @@ function selectionner() {
             star.classList.toggle("active", Number(star.dataset.note) <= note);
         });
 
-    document.getElementById("btnEnvoyer").disabled = (AVIS[0] === 0);
+    document.getElementById("btnEnvoyer").disabled = !AVIS.every(v => v > 0);
 }
 
 /* =========================
@@ -228,8 +228,10 @@ fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma", {
 console.log("📤 requête envoyée");
 
     // UI success
-    document.querySelector(".card").innerHTML = `
-        <h2>Merci pour votre avis 😊</h2>
-        <p>Votre retour a bien été pris en compte.</p>
-    `;
+    const message = document.getElementById("message");
+
+message.innerHTML = `
+    <h2>Merci pour votre avis 😊</h2>
+    <p>Votre retour a bien été pris en compte.</p>
+`;
 }
