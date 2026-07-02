@@ -249,7 +249,8 @@ document.getElementById(
 ----------------------------------------------------------*/
 
 function envoyer(){
-
+console.log("DEBUG AVIS =", AVIS);
+console.log("isArray =", Array.isArray(AVIS));
     const commentaire =
         document.getElementById("commentaire").value.trim();
 
