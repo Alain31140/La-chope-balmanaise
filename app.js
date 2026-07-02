@@ -193,7 +193,13 @@ console.log("🚀 TEST ENVOI MAKE");
     let resultat = {
         commerce: CONFIG.commerce.nom,
         date: new Date().toLocaleString(),
-        notes: AVIS,
+        notes: {
+    		global: AVIS[0],
+    		qualite: AVIS[1],
+    		accueil: AVIS[2],
+    		rapidite: AVIS[3],
+    		prix: AVIS[4]
+		}
         moyenne,
         pastille,
         commentaire,
