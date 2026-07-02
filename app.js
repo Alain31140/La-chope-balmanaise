@@ -328,7 +328,13 @@ console.log("isArray =", Array.isArray(AVIS));
     console.clear();
     console.log("=== DONNEES RECUPEREES ===");
     console.log(resultat);
-
+fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qnj5qnj5cfahuma", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(resultat)
+});
     // =========================
     // 📧 APERÇU
     // =========================
