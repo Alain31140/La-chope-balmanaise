@@ -119,7 +119,8 @@ function selectionner() {
             star.classList.toggle("active", Number(star.dataset.note) <= note);
         });
 
-    document.getElementById("btnEnvoyer").disabled = !AVIS.every(v => v > 0);
+   document.getElementById("btnEnvoyer").disabled =
+    AVIS.some(v => v === 0);
 }
 
 /* =========================
@@ -177,10 +178,10 @@ console.log("🚀 TEST ENVOI MAKE");
         }
     }
 
-    if (!AVIS[0]) {
-        alert("Merci de renseigner la note globale.");
-        return;
-    }
+    if (AVIS.some(v => v === 0)) {
+    alert("Merci de noter toutes les questions.");
+    return;
+}
 
     let total = 0;
     AVIS.forEach(n => total += Number(n));
