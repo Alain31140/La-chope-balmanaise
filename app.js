@@ -253,100 +253,90 @@ function envoyer(){
     const commentaire =
         document.getElementById("commentaire").value.trim();
 
-
     const prenom =
         document.getElementById("prenom").value.trim();
-
 
     const contact =
         document.getElementById("contact").checked;
 
-
-
-    if(AVIS[0]===0){
-
+    // 🔴 sécurité : note globale (AVIS[0]) doit exister
+    if (AVIS[0] === 0) {
         alert("Merci de renseigner au moins la note globale.");
-
         return;
-
     }
 
+    // =========================
+    // 📊 CALCUL MOYENNE
+    // =========================
+    let total = 0;
+    let nb = 0;
 
+    AVIS.forEach(note => {
+        total += Number(note);
+        nb++;
+    });
 
+    const moyenne = total / nb;
+
+    // =========================
+    // 🎨 PASTILLE
+    // =========================
+    let pastille = "";
+
+    if (moyenne >= 4) {
+        pastille = "🟢";
+    }
+    else if (moyenne >= 3) {
+        pastille = "🟡";
+    }
+    else {
+        pastille = "🔴";
+    }
+
+    // =========================
+    // 🧾 DÉTAIL NOTES
+    // =========================
     let detailsNotes = "";
 
     CONFIG.questions.forEach((question,index)=>{
-
         detailsNotes +=
-        question +
-        " : " +
-        AVIS[index] +
-        "/5\n";
-
+            question +
+            " : " +
+            AVIS[index] +
+            "/5\n";
     });
 
+    // =========================
+    // 📦 OBJET FINAL
+    // =========================
+    const resultat = {
 
+        commerce: CONFIG.commerce.nom,
+        date: new Date().toLocaleString(),
 
-    const resultat={
+        notes: AVIS,
 
-
-        commerce:
-            CONFIG.commerce.nom,
-
-
-        date:
-            new Date().toLocaleString(),
-
-
-        notes:
-            AVIS,
-
+        moyenne: moyenne,
+        pastille: pastille,
 
         commentaire,
-
         prenom,
-
         contact
-
     };
 
-
-
     console.clear();
-
-
     console.log("=== DONNEES RECUPEREES ===");
-
     console.log(resultat);
 
-    fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify(resultat)
-
-    })
-
-    .then(() => {
-
-        console.log("Avis envoyé à Make");
-
-    })
-
-    .catch(error => {
-
-        console.error("Erreur envoi Make :", error);
-
-    });
-
+    // =========================
+    // 📧 APERÇU
+    // =========================
     const apercu = `
 
 📧 EMAIL PRÉVU
 ====================
+
+${pastille} Note moyenne : ${moyenne.toFixed(1)}/5
 
 Commerce :
 ${resultat.commerce}
@@ -354,68 +344,30 @@ ${resultat.commerce}
 Date :
 ${resultat.date}
 
-
 ${detailsNotes}
-
 
 👤 Client :
 ${prenom || "Anonyme"}
 
-
 📞 Recontact :
 ${contact ? "Oui" : "Non"}
-
 
 💬 Commentaire :
 
 ${commentaire || "Aucun commentaire"}
 
-
-
 📱 NOTIFICATION NTFY
 ====================
 
+${pastille} Nouvel avis reçu
 
-🍽️ Nouvel avis reçu
-
-⭐ Note globale :
-${AVIS[0]}/5
-
-
-${commentaire || ""}
+⭐ Moyenne :
+${moyenne.toFixed(1)}/5
 
 `;
 
-let couleurAvis = "";
-
-if (AVIS[0] >= 4) {
-    couleurAvis = "avis-vert";
-}
-else if (AVIS[0] === 3) {
-    couleurAvis = "avis-orange";
-}
-else {
-    couleurAvis = "avis-rouge";
-}
-let pastilleAvis = "";
-
-if (AVIS[0] >= 4) {
-    pastilleAvis = "🟢";
-}
-else if (AVIS[0] === 3) {
-    pastilleAvis = "🟠";
-}
-else {
-    pastilleAvis = "🔴";
-}
     document.getElementById("message").innerHTML =
-
-    "<pre class='apercu " + couleurAvis + "'>" +
-
-    apercu +
-
-    "</pre>";
-
-
-
+        "<pre class='apercu'>" +
+        apercu +
+        "</pre>";
 }
