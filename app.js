@@ -182,19 +182,20 @@ console.log("🚀 TEST ENVOI MAKE");
     let email = "";
 
     if (contact) {
-        phone = document.getElementById("phone").value.trim();
-        email = document.getElementById("email").value.trim();
 
-        if (!isValidPhone(phone)) {
-            alert("Téléphone invalide");
-            return;
-        }
+    phone = document.getElementById("phone").value.trim();
+    email = document.getElementById("email").value.trim();
 
-        if (!isValidEmail(email)) {
-            alert("Email invalide");
-            return;
-        }
+    if (phone !== "" && !isValidPhone(phone)) {
+        alert("Téléphone invalide");
+        return;
     }
+
+    if (email !== "" && !isValidEmail(email)) {
+        alert("Email invalide");
+        return;
+    }
+}
 
     if (AVIS.some(v => v === 0)) {
     alert("Merci de noter toutes les questions.");
