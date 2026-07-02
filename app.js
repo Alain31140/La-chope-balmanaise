@@ -152,6 +152,8 @@ function isValidPhone(phone) {
 
 function envoyer() {
 
+console.log("🚀 TEST ENVOI MAKE");
+
     const commentaire = document.getElementById("commentaire").value.trim();
     const prenom = document.getElementById("prenom").value.trim();
 
@@ -209,12 +211,14 @@ console.log(JSON.stringify(resultat, null, 2));
 
 fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma", {
     method: "POST",
+    mode: "no-cors",
     headers: {
         "Content-Type": "application/json"
     },
     body: JSON.stringify(resultat)
-})
-.catch(err => console.log("WEBHOOK ERROR", err));
+});
+
+console.log("📤 requête envoyée");
 
     // UI success
     document.querySelector(".card").innerHTML = `
