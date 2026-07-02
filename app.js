@@ -247,10 +247,13 @@ fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma", {
 console.log("📤 requête envoyée");
 
     // UI success
-    const message = document.getElementById("message");
+    document.getElementById("formulaire").style.display = "none";
 
-message.innerHTML = `
-    <h2>Merci pour votre avis 😊</h2>
-    <p>Votre retour a bien été pris en compte.</p>
-`;
+document.getElementById("merciCommerce").textContent =
+    "Toute l'équipe de " +
+    CONFIG.commerce.nom +
+    " vous remercie de votre visite.";
+
+document.getElementById("merci").classList.remove("merci-cache");
+document.getElementById("merci").classList.add("merci-visible");
 }
