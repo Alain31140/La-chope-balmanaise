@@ -328,11 +328,17 @@ console.log("isArray =", Array.isArray(AVIS));
     console.clear();
     console.log("=== DONNEES RECUPEREES ===");
     console.log(resultat);
+    
+    console.log("ENVOI MAKE:", resultat);
+    
 fetch("https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qnj5qnj5cfahuma", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
     },
+    body: JSON.stringify(resultat)
+}).catch(err => console.log("WEBHOOK ERROR", err));
+
     body: JSON.stringify(resultat)
 });
     // =========================
