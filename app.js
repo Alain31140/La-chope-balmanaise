@@ -19,16 +19,28 @@ window.addEventListener("DOMContentLoaded", initialiser);
 
 function initialiser() {
 
-    document.getElementById("btnEnvoyer").disabled = true;
+    console.log("INIT OK");
+
+    const btn = document.getElementById("btnEnvoyer");
+    const contact = document.getElementById("contact");
+    const zone = document.getElementById("questionnaire");
+
+    if (!btn || !zone) {
+        console.error("ELEMENTS HTML MANQUANTS");
+        return;
+    }
+
+    btn.disabled = true;
 
     afficherCommerce();
     construireQuestionnaire();
 
-    document.getElementById("btnEnvoyer")
-        .addEventListener("click", envoyer);
+    btn.addEventListener("click", envoyer);
 
-    // contact toggle
-    document.getElementById("contact").addEventListener("change", toggleContactFields);
+    // CONTACT SAFE
+    if (contact) {
+        contact.addEventListener("change", toggleContactFields);
+    }
 
     toggleContactFields();
 }
@@ -129,10 +141,16 @@ function selectionner() {
 
 function toggleContactFields() {
 
-    const show = document.getElementById("contact").checked;
+    const contact = document.getElementById("contact");
+    const phone = document.getElementById("phoneBlock");
+    const email = document.getElementById("emailBlock");
 
-    document.getElementById("phoneBlock").style.display = show ? "block" : "none";
-    document.getElementById("emailBlock").style.display = show ? "block" : "none";
+    if (!contact || !phone || !email) return;
+
+    const show = contact.checked;
+
+    phone.style.display = show ? "block" : "none";
+    email.style.display = show ? "block" : "none";
 }
 
 /* =========================
