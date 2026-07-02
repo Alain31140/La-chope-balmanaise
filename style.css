@@ -345,3 +345,38 @@ button:disabled{
 .avis-rouge {
     border-left: 8px solid #F44336;
 }
+
+/*==========================================================
+MERCI
+==========================================================*/
+
+.merci-cache{
+    display:none;
+}
+
+.merci-visible{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:70vh;
+}
+
+.merci-contenu{
+    width:100%;
+    text-align:center;
+}
+
+.merci-emoji{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.merci-contenu h1{
+    color:#2E7D32;
+    margin-bottom:20px;
+}
+
+.merci-contenu p{
+    font-size:1.2rem;
+    margin:10px 0;
+}
