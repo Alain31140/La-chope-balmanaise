@@ -222,17 +222,32 @@ console.log("🚀 TEST ENVOI MAKE");
     let pastille = moyenne >= 4 ? "🟢" : moyenne >= 3 ? "🟡" : "🔴";
 
     let resultat = {
-        commerce: CONFIG.commerce.nom,
-        date: new Date().toLocaleString(),
-        notes: AVIS,
-        moyenne,
-        pastille,
-        commentaire,
-        prenom,
-        contact,
-        phone,
-        email
-    };
+
+    	commerce: CONFIG.commerce.nom,
+
+    	emailCommerce: CONFIG.commerce.email,
+
+    	date: new Date().toLocaleString(),
+
+    	notes: AVIS,
+
+    	moyenne: moyenne.toFixed(1),
+
+    	pastille,
+
+    	commentaire,
+
+   	prenom,
+
+    	contact,
+
+    	contactTexte: contact ? "Oui" : "Non",
+		
+    	phone,
+
+    	email
+
+	};
 
 
 console.log("👉 ENVOI WEBHOOK");
