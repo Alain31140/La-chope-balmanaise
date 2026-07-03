@@ -1,21 +1,33 @@
-let CONFIG = {
-    commerce: {
-        nom: "La chope balmanaise",
-        slogan: "Merci de votre visite !",
-        logo: "images/logo.png"
-    },
-    questions: [
-        "Expérience globale",
-        "Qualité des plats",
-        "Accueil",
-        "Rapidité du service",
-        "Rapport qualité / prix"
-    ]
-};
+let CONFIG = {};
 
 let AVIS = [];
 
-window.addEventListener("DOMContentLoaded", initialiser);
+window.addEventListener("DOMContentLoaded", chargerConfiguration);
+
+async function chargerConfiguration() {
+
+    try {
+
+        const response = await fetch("config.json");
+
+        if (!response.ok) {
+            throw new Error("Impossible de charger config.json");
+        }
+
+        CONFIG = await response.json();
+
+        initialiser();
+
+    }
+    catch (err) {
+
+        console.error(err);
+
+        alert("Erreur de chargement du fichier de configuration.");
+
+    }
+
+}
 
 function initialiser() {
 
