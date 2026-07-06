@@ -6,7 +6,8 @@
     "slogan": "Merci de votre visite !",
     "logo": "images/logo.png",
     "email": "danes.alain@gmail.com",
-    "topic_ntfy": "brasserie-avis-demo"
+    "topic_ntfy": "brasserie-avis-demo",
+    "make_webhook": "https://hook.eu1.make.com/nwgi0ghxwg8a4ud9qmoj5qnj5cfahuma"
   },
 
   "questions": [
