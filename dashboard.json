@@ -1,9 +1,8 @@
 {
   "commerce": {
     "nom": "La Chope balmanaise",
-    "slogan": "Tableau de bord expérience client"
-    "logo": "images/Logo-La-chope.png",
-    "slogan": "Tableau de bord Satisfaction Client"
+"logo": "images/Logo-La-chope.png",
+"slogan": "Tableau de bord Satisfaction Client"
   },
   "maj": "09/07/2026 17:52",
   "etat": {
