@@ -10,24 +10,21 @@
     "message": "La satisfaction client est bonne aujourd'hui."
   },
   "kpi": {
-    "note": 4.3,
-    "satisfaction": 87,
-    "avis": 24,
-    "tendance": 0.2,
+    "note": 0.0,
+    "satisfaction": 0,
+    "avis": 0,
+    "tendance": 0.0,
     "pointFort": "😊 Accueil",
     "ameliorer": "🐢🐇 Rapidité"
   },
   "criteres": {
-    "cuisine": 4.5,
-    "accueil": 4.8,
-    "rapidite": 3.9,
-    "prix": 4.2
+    "cuisine": 0.0,
+    "accueil": 0.0,
+    "rapidite": 0.0,
+    "prix": 0.0
   },
   "historique": [
-    { "date": "06/07", "note": 3.8, "avis": 6 },
-    { "date": "07/07", "note": 3.5, "avis": 20 },
-    { "date": "08/07", "note": 4.1, "avis": 12 },
-    { "date": "09/07", "note": 4.3, "avis": 24 }
+    { "date": "09/07", "note": 0.0, "avis": 0 }
   ],
   "analyse": [
     "L'accueil est régulièrement apprécié par les clients.",
@@ -36,15 +33,15 @@
   ],
   "derniersAvis": [
     {
-      "note": 4,
+      "note": 0,
       "texte": "Très bon accueil, service agréable et repas de qualité."
     },
     {
-      "note": 3,
+      "note": 0,
       "texte": "Bon repas mais attente un peu longue."
     },
     {
-      "note": 5,
+      "note": 0,
       "texte": "Excellent moment, équipe très sympathique."
     }
   ]
