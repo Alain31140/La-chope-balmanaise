@@ -4,43 +4,67 @@
     "logo": "images/Logo-La-chope.png",
     "slogan": "Tableau de bord Satisfaction Client"
   },
-  "maj": "13/07/2026 07:44",
+  "maj": "13/07/2026 19:33",
   "etat": {
     "label": "🔴 Insatisfaisant",
     "message": "La satisfaction nécessite une attention particulière."
   },
   "kpi": {
-  "note": 0,
-  "satisfaction": 0,
-  "avis": 0,
-  "tendance": 0,
-  "pointFort": "Pas encore de données",
-  "ameliorer": "Pas encore de données"
-},
-"criteres": {
-  "cuisine": 0,
-  "accueil": 0,
-  "rapidite": 0,
-  "prix": 0
-},
-"historique": [],
-"commentaires": {
-  "total": 0,
-  "pourcentagePositif": 0,
-  "pourcentageMitige": 0,
-  "pourcentageNegatif": 0,
-  "pourcentageNonDetermine": 0,
-  "pointFort": {
-    "theme": "Pas encore de données",
-    "mentions": 0
+    "note": 3,
+    "satisfaction": 0,
+    "avis": 1,
+    "tendance": 3,
+    "pointFort": "🍽️ Cuisine",
+    "ameliorer": "💶 Rapport Q/P"
   },
-  "irritant": {
-    "theme": "Pas encore de données",
-    "mentions": 0
+  "criteres": {
+    "cuisine": 4,
+    "accueil": 3,
+    "rapidite": 2,
+    "prix": 1
   },
-  "termesPositifs": [],
-  "termesNegatifs": []
-},
-"analyse": [],
-"derniersAvis": []
+  "historique": [
+    {
+      "date": "01/06",
+      "note": 0,
+      "avis": 0
+    },
+    {
+      "date": "13/07",
+      "note": 3,
+      "avis": 1
+    }
+  ],
+  "commentaires": {
+    "total": 0,
+    "pourcentagePositif": 0,
+    "pourcentageMitige": 0,
+    "pourcentageNegatif": 0,
+    "pourcentageNonDetermine": 0,
+    "pointFort": {
+      "theme": "Pas encore de données",
+      "mentions": 0
+    },
+    "irritant": {
+      "theme": "Pas encore de données",
+      "mentions": 0
+    },
+    "termesPositifs": [],
+    "termesNegatifs": []
+  },
+  "analyse": [
+    "Principal point fort : Pas encore de données — 0 mentions positives.",
+    "Principal irritant : Pas encore de données — 0 mentions négatives.",
+    "0 % des commentaires présentent une tendance positive."
+  ],
+  "derniersAvis": [
+    {
+      "note": 3,
+      "texte": "Bon accueil bons repas"
+    },
+    {
+      "note": 3.6,
+      "texte": "Un excellent moment! L'accueil a été chalereux, le service était attentionné, souriant et très professionnel. L'équipe est à l'écoute et veille au bien-être des clients tout au long du repas. Une adresse que je recommande sans hésiter pour la qualité de sont service et l'ambiance agréable. Merci à toute l'équipe, nous reviendrons avec plaisir!"
+    }
+  ]
 }
