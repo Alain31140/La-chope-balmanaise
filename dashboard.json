@@ -1,48 +1,46 @@
 {
   "commerce": {
     "nom": "La Chope balmanaise",
-"logo": "images/Logo-La-chope.png",
-"slogan": "Tableau de bord Satisfaction Client"
+    "logo": "images/Logo-La-chope.png",
+    "slogan": "Tableau de bord Satisfaction Client"
   },
-  "maj": "09/07/2026 17:52",
+  "maj": "13/07/2026 07:44",
   "etat": {
-    "label": "🟢 Satisfaisant",
-    "message": "La satisfaction client est bonne aujourd'hui."
+    "label": "🔴 Insatisfaisant",
+    "message": "La satisfaction nécessite une attention particulière."
   },
   "kpi": {
-    "note": 0.0,
-    "satisfaction": 0,
-    "avis": 0,
-    "tendance": 0.0,
-    "pointFort": "😊 Accueil",
-    "ameliorer": "🐢🐇 Rapidité"
+  "note": 0,
+  "satisfaction": 0,
+  "avis": 0,
+  "tendance": 0,
+  "pointFort": "Pas encore de données",
+  "ameliorer": "Pas encore de données"
+},
+"criteres": {
+  "cuisine": 0,
+  "accueil": 0,
+  "rapidite": 0,
+  "prix": 0
+},
+"historique": [],
+"commentaires": {
+  "total": 0,
+  "pourcentagePositif": 0,
+  "pourcentageMitige": 0,
+  "pourcentageNegatif": 0,
+  "pourcentageNonDetermine": 0,
+  "pointFort": {
+    "theme": "Pas encore de données",
+    "mentions": 0
   },
-  "criteres": {
-    "cuisine": 0.0,
-    "accueil": 0.0,
-    "rapidite": 0.0,
-    "prix": 0.0
+  "irritant": {
+    "theme": "Pas encore de données",
+    "mentions": 0
   },
-  "historique": [
-    { "date": "09/07", "note": 0.0, "avis": 0 }
-  ],
-  "analyse": [
-    "L'accueil est régulièrement apprécié par les clients.",
-    "La rapidité reste le principal axe d'amélioration.",
-    "La cuisine obtient une note stable et satisfaisante."
-  ],
-  "derniersAvis": [
-    {
-      "note": 0,
-      "texte": "Très bon accueil, service agréable et repas de qualité."
-    },
-    {
-      "note": 0,
-      "texte": "Bon repas mais attente un peu longue."
-    },
-    {
-      "note": 0,
-      "texte": "Excellent moment, équipe très sympathique."
-    }
-  ]
+  "termesPositifs": [],
+  "termesNegatifs": []
+},
+"analyse": [],
+"derniersAvis": []
 }
