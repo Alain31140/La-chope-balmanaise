@@ -4,24 +4,24 @@
     "logo": "images/Logo-La-chope.png",
     "slogan": "Tableau de bord Satisfaction Client"
   },
-  "maj": "13/07/2026 19:33",
+  "maj": "14/07/2026 16:45",
   "etat": {
     "label": "🔴 Insatisfaisant",
     "message": "La satisfaction nécessite une attention particulière."
   },
   "kpi": {
-    "note": 3,
+    "note": 0,
     "satisfaction": 0,
-    "avis": 1,
-    "tendance": 3,
-    "pointFort": "🍽️ Cuisine",
-    "ameliorer": "💶 Rapport Q/P"
+    "avis": 0,
+    "tendance": -3,
+    "pointFort": "⚖️ Équilibre",
+    "ameliorer": "✅ RAS"
   },
   "criteres": {
-    "cuisine": 4,
-    "accueil": 3,
-    "rapidite": 2,
-    "prix": 1
+    "cuisine": 0,
+    "accueil": 0,
+    "rapidite": 0,
+    "prix": 0
   },
   "historique": [
     {
@@ -36,26 +36,60 @@
     }
   ],
   "commentaires": {
-    "total": 0,
-    "pourcentagePositif": 0,
+    "total": 2,
+    "pourcentagePositif": 100,
     "pourcentageMitige": 0,
     "pourcentageNegatif": 0,
     "pourcentageNonDetermine": 0,
     "pointFort": {
-      "theme": "Pas encore de données",
-      "mentions": 0
+      "theme": "🍽️ Cuisine",
+      "mentions": 2
     },
     "irritant": {
-      "theme": "Pas encore de données",
-      "mentions": 0
+      "theme": "🍽️ Cuisine",
+      "mentions": 1
     },
-    "termesPositifs": [],
-    "termesNegatifs": []
+    "termesPositifs": [
+      {
+        "terme": "agréable",
+        "mentions": 1
+      },
+      {
+        "terme": "ambiance",
+        "mentions": 1
+      },
+      {
+        "terme": "excellent",
+        "mentions": 1
+      },
+      {
+        "terme": "professionnel",
+        "mentions": 1
+      },
+      {
+        "terme": "recommande",
+        "mentions": 1
+      },
+      {
+        "terme": "souriant",
+        "mentions": 1
+      },
+      {
+        "terme": "bon",
+        "mentions": 1
+      }
+    ],
+    "termesNegatifs": [
+      {
+        "terme": "long",
+        "mentions": 1
+      }
+    ]
   },
   "analyse": [
-    "Principal point fort : Pas encore de données — 0 mentions positives.",
-    "Principal irritant : Pas encore de données — 0 mentions négatives.",
-    "0 % des commentaires présentent une tendance positive."
+    "Principal point fort : 🍽️ Cuisine — 2 mentions positives.",
+    "Principal irritant : 🍽️ Cuisine — 1 mentions négatives.",
+    "100 % des commentaires présentent une tendance positive."
   ],
   "derniersAvis": [
     {
