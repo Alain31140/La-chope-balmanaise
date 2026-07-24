@@ -1,13 +1,13 @@
 {
-  "version": "1.0",
+  "version": "2.0",
 
   "commerce": {
-    "nom": "La Chope balmanaise",
+    "nom": "La Chope balmanaise V1 TEST",
     "slogan": "Merci de votre visite !",
     "logo": "images/Logo-La-chope.png",
     "email": "danes.alain@gmail.com",
     "topic_ntfy": "brasserie-avis-officiel",
-    "make_webhook": "https://hook.eu1.make.com/iqliht65vo4ehlbakg824b7r8an2ug6z"
+    "make_webhook": "https://hook.eu1.make.com/8enojivsoygnt45in47plen876lv14wq"
   },
 
   "questions": [
